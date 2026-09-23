@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: lefilmleplus-remark42
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /ping
+    autoDeploy: false
+    envVars:
+      - key: REMARK_URL
+        value: https://lefilmleplus-remark42.onrender.com
+      - key: SITE
+        value: lefilmleplus
+      - key: SECRET
+        generateValue: true
+      - key: ADMIN_PASSWD
+        generateValue: true
+      - key: AUTH_ANON
+        value: "true"
+      - key: AUTH_SEND_JWT_HEADER
+        value: "true"
+      - key: AUTH_SAME_SITE
+        value: none
+      - key: ALLOWED_HOSTS
+        value: lefilmleplus.netlify.app
+      - key: EMOJI
+        value: "true"
+      - key: TIME_ZONE
+        value: Europe/Paris
